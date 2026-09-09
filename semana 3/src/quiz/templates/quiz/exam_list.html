@@ -1,0 +1,23 @@
+{% extends "quiz/base.html" %}
+
+{% block title %}Exams - Quiz App{% endblock %}
+
+{% block content %}
+<h1>Exams</h1>
+
+{% if exams %}
+    <div class="list-group">
+        {% for exam in exams %}
+            <a href="{% url 'exam_detail' pk=exam.pk %}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ exam.title }}</h5>
+                    <small>{{ exam.created_date|date:"M d, Y" }}</small>
+                </div>
+                <p class="mb-1">{{ exam.description|truncatewords:20 }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">No exams available.</div>
+{% endif %}
+{% endblock %}

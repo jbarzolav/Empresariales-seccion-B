@@ -1,0 +1,49 @@
+{% extends "quiz/base.html" %}
+
+{% block title %}Add Question - {{ exam.title }}{% endblock %}
+
+{% block content %}
+<h1>Add Question to: {{ exam.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="card mb-4">
+        <div class="card-header">Question</div>
+        <div class="card-body">
+            {{ question_form.as_p }}
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">Choices (mark exactly one as correct)</div>
+        <div class="card-body">
+            {{ choice_formset.management_form }}
+            {% for form in choice_formset %}
+                <div class="row mb-2">
+                    <div class="col-8">
+                        {{ form.content }}
+                    </div>
+                    <div class="col-2">
+                        <div class="form-check">
+                            {{ form.is_correct }}
+                            <label class="form-check-label">Correct</label>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        {% if form.DELETE %}
+                            <div class="form-check">
+                                {{ form.DELETE }}
+                                <label class="form-check-label text-danger">Delete</label>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Question</button>
+    <a href="{% url 'exam_detail' pk=exam.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
