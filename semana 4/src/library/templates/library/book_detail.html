@@ -1,0 +1,67 @@
+{% extends 'library/base.html' %}
+
+{% block title %}{{ book.title }} - Library System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'library:book_list' %}">Catalog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ book.title }}</li>
+            </ol>
+        </nav>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="card-title text-primary mb-3">{{ book.title }}</h2>
+                <h6 class="card-subtitle mb-3 text-muted">ISBN: {{ book.isbn }} | Published: {{ book.publication_date }}</h6>
+                
+                <hr>
+
+                <h4 class="h5">Author Information</h4>
+                <p class="mb-1"><strong>Name:</strong> {{ book.author }}</p>
+                <p class="mb-1"><strong>Email:</strong> {{ book.author.email }}</p>
+                {% if book.author.profile %}
+                    <p class="mb-1"><strong>Biography:</strong> {{ book.author.profile.biography }}</p>
+                    {% if book.author.profile.website %}
+                        <p class="mb-1"><strong>Website:</strong> <a href="{{ book.author.profile.website }}" target="_blank">{{ book.author.profile.website }}</a></p>
+                    {% endif %}
+                    {% if book.author.profile.photo %}
+                        <div class="mt-2">
+                            <img src="{{ book.author.profile.photo.url }}" alt="{{ book.author }}" class="img-thumbnail" style="max-height: 150px;">
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                <hr>
+
+                <h4 class="h5">Publishers & Editions</h4>
+                {% if book.publication_set.all %}
+                    <ul class="list-group mb-3">
+                        {% for pub in book.publication_set.all %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{ pub.publisher.name }} (Edition {{ pub.edition }})</span>
+                                <span class="badge bg-dark">Date: {{ pub.publication_date }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="text-muted">No publishers linked.</p>
+                {% endif %}
+
+                <h4 class="h5">Categories</h4>
+                <p class="mb-3">
+                    {% for cat in book.categories.all %}
+                        <span class="badge bg-info text-dark me-1">{{ cat.name }}</span>
+                    {% empty %}
+                        <span class="text-muted">No categories assigned.</span>
+                    {% endfor %}
+                </p>
+
+                <a href="{% url 'library:book_list' %}" class="btn btn-secondary mt-3">&larr; Back to Catalog</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

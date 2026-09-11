@@ -1,0 +1,32 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Book List - Library System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Library Catalog</h1>
+        {% if books %}
+            <div class="list-group">
+                {% for book in books %}
+                    <a href="{% url 'library:book_detail' book.pk %}" class="list-group-item list-group-item-action flex-column align-items-start mb-2 shadow-sm rounded">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1 text-primary">{{ book.title }}</h5>
+                            <small class="text-muted">Published: {{ book.publication_date }}</small>
+                        </div>
+                        <p class="mb-1"><strong>Author:</strong> {{ book.author }}</p>
+                        <p class="mb-1">
+                            <strong>Categories:</strong> 
+                            {% for cat in book.categories.all %}
+                                <span class="badge bg-secondary">{{ cat.name }}</span>
+                            {% endfor %}
+                        </p>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">No books available in the library yet. Please add some via the Django Admin.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
