@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Recomendaciones de películas</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; background: #f6f7f9; color: #1f2937; }
+    header { background: #0f766e; color: #fff; padding: 1.2rem 2rem; }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    header p { margin: .35rem 0 0; opacity: .9; font-size: .95rem; }
+    main { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
+    form { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+    select, button { font-size: 1rem; padding: .45rem .6rem; border-radius: 6px; border: 1px solid #cbd5e1; }
+    button { background: #0f766e; color: #fff; border-color: #0f766e; cursor: pointer; }
+    .base { margin: 1.25rem 0 .5rem; font-size: 1.05rem; }
+    .base span { color: #0f766e; font-weight: 600; }
+    ol { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem 1rem 1rem 3rem; }
+    li { padding: .55rem 0; border-bottom: 1px solid #f1f5f9; }
+    li:last-child { border-bottom: none; }
+    .titulo { font-weight: 600; }
+    .meta { color: #64748b; font-size: .9rem; }
+    .score { background: #0f766e; color: #fff; border-radius: 999px; padding: .1rem .55rem; font-size: .85rem; margin-left: .4rem; }
+    .vacio { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 1rem; }
+    footer { max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #64748b; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recomendaciones de películas</h1>
+    <p>Películas del mismo género, ordenadas por mejor valoración (vista pública, sin iniciar sesión).</p>
+  </header>
+
+  <main>
+    <form method="get" action="{% url 'movies:recomendaciones' %}">
+      <label for="pelicula"><strong>Si te gustó…</strong></label>
+      <select name="pelicula" id="pelicula">
+        <option value="">— elige una película —</option>
+        {% for pelicula in catalogo %}
+          <option value="{{ pelicula.pk }}" {% if base and base.pk == pelicula.pk %}selected{% endif %}>
+            {{ pelicula }}
+          </option>
+        {% endfor %}
+      </select>
+      <button type="submit">Recomendar</button>
+    </form>
+
+    {% if base %}
+      <p class="base">
+        Porque viste <span>{{ base }}</span> ({{ base.genres.all|join:", " }}), te recomendamos:
+      </p>
+
+      {% if recomendaciones %}
+        <ol>
+          {% for pelicula in recomendaciones %}
+            <li>
+              <span class="titulo">{{ pelicula }}</span>
+              {% if pelicula.promedio is not None %}
+                <span class="score">{{ pelicula.promedio|floatformat:1 }} / 5</span>
+              {% else %}
+                <span class="score">sin valoraciones</span>
+              {% endif %}
+              <div class="meta">
+                Géneros: {{ pelicula.genres.all|join:", " }} ·
+                Valoraciones: {{ pelicula.votos }}
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <p class="vacio">No hay otras películas de esos géneros valoradas todavía.</p>
+      {% endif %}
+    {% else %}
+      <p class="vacio">Elige una película para ver las recomendaciones del mismo género.</p>
+    {% endif %}
+  </main>
+
+  <footer>
+    Datos del panel de administración · vista pública creada en <code>movies/views.py</code>
+  </footer>
+</body>
+</html>

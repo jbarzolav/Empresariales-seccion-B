@@ -1,0 +1,24 @@
+<article class="article-card">
+    {% if article.featured_image %}
+        <img src="{{ article.featured_image.url }}" alt="{{ article.title }}">
+    {% endif %}
+
+    <div class="article-card__body">
+        <h2>
+            <a href="{% url 'news:article_detail' article.slug %}">
+                {{ article.title }}
+            </a>
+        </h2>
+        <p class="article-card__meta">
+            {{ article.publication_date|date:"d/m/Y" }} · {{ article.author.name }}
+        </p>
+        <p>{{ article.summary|default:article.content|truncatewords:25 }}</p>
+        <p>
+            {% for category in article.categories.all %}
+                <a href="{% url 'news:category' category.slug %}">
+                    {{ category.name }}
+                </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+</article>

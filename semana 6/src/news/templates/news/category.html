@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Category articles | News Portal{% endblock %}
+
+{% block content %}
+    <h1>{{ category.name }}</h1>
+    <p><a href="{% url 'news:home' %}">Back to latest articles</a></p>
+    {% for article in articles %}
+        {% include 'news/_article_card.html' with article=article %}
+    {% empty %}
+        <p>No articles available in this category.</p>
+    {% endfor %}
+{% endblock %}
