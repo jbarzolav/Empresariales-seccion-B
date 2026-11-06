@@ -1,0 +1,27 @@
+.movie-list {
+  padding-block: 1.5rem 3rem;
+}
+
+.movie-list__header {
+  margin-bottom: 1.25rem;
+}
+
+.movie-list__eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.movie-list__title {
+  color: var(--color-text);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.movie-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  gap: 1.25rem;
+}
