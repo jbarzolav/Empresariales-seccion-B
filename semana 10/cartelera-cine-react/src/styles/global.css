@@ -1,0 +1,84 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-text);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  margin-bottom: var(--space-unit);
+  font-size: var(--font-size-2xl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  color: var(--color-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--color-primary);
+}

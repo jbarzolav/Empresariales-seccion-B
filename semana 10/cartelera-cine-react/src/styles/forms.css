@@ -1,0 +1,126 @@
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-label {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.form-control::placeholder {
+  color: var(--color-muted);
+  opacity: 0.8;
+}
+
+.form-control:focus-visible {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.form-control[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.form-hint,
+.form-error {
+  font-size: var(--font-size-sm);
+}
+
+.form-hint {
+  color: var(--color-muted);
+}
+
+.form-error {
+  color: #b91c1c;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.55;
+}
+
+.button--primary {
+  color: #ffffff;
+  background: var(--color-primary);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.button--secondary {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.button--secondary:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.button--ghost {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.button--ghost:hover:not(:disabled) {
+  background: rgb(124 58 237 / 9%);
+}
+
+.button--icon {
+  width: 2.75rem;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control,
+  .button {
+    transition: none;
+  }
+}
+
+.button--light {
+  color: #312e81;
+  background: #ffffff;
+}
+
+.button--light:hover:not(:disabled) {
+  background: #ede9fe;
+}
+
+.movie-search {
+  width: min(100%, 36rem);
+  margin: 0 auto 1.5rem;
+}

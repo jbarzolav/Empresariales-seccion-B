@@ -1,0 +1,10 @@
+@import './variables.css';
+@import './reset.css';
+@import './global.css';
+@import './forms.css';
+@import './utilities.css';
+@import './header.css';
+@import './hero.css';
+@import './movie-card.css';
+@import './movie-list.css';
+@import './footer.css';

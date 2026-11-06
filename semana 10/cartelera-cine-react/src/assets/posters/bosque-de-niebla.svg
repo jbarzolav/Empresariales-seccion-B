@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+  <title id="title">BOSQUE DE NIEBLA</title>
+  <desc id="desc">Afiche ilustrado para la cartelera de cine</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#153a32" />
+      <stop offset="1" stop-color="#172e3b" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c3e88d" stop-opacity=".8" />
+      <stop offset="1" stop-color="#c3e88d" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="540" fill="url(#background)" />
+  <circle cx="274" cy="132" r="104" fill="url(#glow)" opacity=".7" />
+  <path d="M24 24h312v492H24z" fill="none" stroke="#ffffff" stroke-opacity=".25" />
+  <text x="40" y="62" fill="#ffffff" fill-opacity=".8" font-family="Arial,sans-serif" font-size="13" letter-spacing="3">CARTELERA  /  2026</text>
+  <g transform="translate(0 4)"><path d="M64 286l55-111 55 111zm78 0 67-143 67 143zm94 0 45-93 45 93z" fill="#c3e88d" fill-opacity=".65"/><path d="M180 286v-57m-66 57v-40m132 40v-49" stroke="#fff" stroke-opacity=".5" stroke-width="5"/><path d="M33 223h294M49 246h262" stroke="#ffffff" stroke-opacity=".28" stroke-width="8"/></g>
+  <text x="40" y="408" fill="#ffffff" font-family="Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="1">BOSQUE DE</text>
+  <text x="40" y="444" fill="#ffffff" font-family="Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="1">NIEBLA</text>
+  <path d="M40 466h94" stroke="#c3e88d" stroke-width="4" />
+  <text x="40" y="496" fill="#ffffff" fill-opacity=".78" font-family="Arial,sans-serif" font-size="13" letter-spacing="2">FANTASÍA</text>
+  <text x="318" y="496" fill="#ffffff" fill-opacity=".78" text-anchor="end" font-family="Arial,sans-serif" font-size="13">CINE</text>
+</svg>
