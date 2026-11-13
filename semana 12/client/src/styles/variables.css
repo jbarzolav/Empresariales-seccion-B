@@ -1,0 +1,36 @@
+:root {
+  font-family: var(--font-family-base);
+  color: #1f2937;
+  background: #f3f4f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-background: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-border: #d1d5db;
+  --color-focus: #8b5cf6;
+  --content-width: 1120px;
+  --space-unit: 1rem;
+
+  --font-family-base: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-heading: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: clamp(1.75rem, 4vw, 2.5rem);
+  --line-height-tight: 1.15;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --radius-control: 0.625rem;
+  --radius-button: 999px;
+  --shadow-focus: 0 0 0 3px rgb(139 92 246 / 22%);
+}
