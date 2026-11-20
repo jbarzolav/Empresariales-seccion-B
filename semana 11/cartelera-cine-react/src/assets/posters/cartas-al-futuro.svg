@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540" role="img" aria-labelledby="title desc">
+  <title id="title">CARTAS AL FUTURO</title>
+  <desc id="desc">Afiche ilustrado para la cartelera de cine</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56314f" />
+      <stop offset="1" stop-color="#253650" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd5a5" stop-opacity=".8" />
+      <stop offset="1" stop-color="#ffd5a5" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="360" height="540" fill="url(#background)" />
+  <circle cx="274" cy="132" r="104" fill="url(#glow)" opacity=".7" />
+  <path d="M24 24h312v492H24z" fill="none" stroke="#ffffff" stroke-opacity=".25" />
+  <text x="40" y="62" fill="#ffffff" fill-opacity=".8" font-family="Arial,sans-serif" font-size="13" letter-spacing="3">CARTELERA  /  2026</text>
+  <g transform="translate(0 4)"><rect x="91" y="154" width="178" height="132" rx="8" fill="#ffd5a5" fill-opacity=".9" transform="rotate(-8 180 220)"/><path d="M104 174l76 62 76-82M105 272l56-46m95 36-57-41" stroke="#8d5266" stroke-width="5" fill="none"/><path d="M180 224c-22-25-51 4 0 42 51-38 22-67 0-42z" fill="#b84f6d"/></g>
+  <text x="40" y="408" fill="#ffffff" font-family="Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="1">CARTAS AL</text>
+  <text x="40" y="444" fill="#ffffff" font-family="Arial,sans-serif" font-weight="700" font-size="28" letter-spacing="1">FUTURO</text>
+  <path d="M40 466h94" stroke="#ffd5a5" stroke-width="4" />
+  <text x="40" y="496" fill="#ffffff" fill-opacity=".78" font-family="Arial,sans-serif" font-size="13" letter-spacing="2">ROMANCE</text>
+  <text x="318" y="496" fill="#ffffff" fill-opacity=".78" text-anchor="end" font-family="Arial,sans-serif" font-size="13">CINE</text>
+</svg>
